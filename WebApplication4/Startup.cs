@@ -43,6 +43,9 @@ namespace WebApplication4
 
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
+
+            //Versionamento API
+            services.AddApiVersioning();
             //Injecao de dependencia
             services.AddScoped<IPersonService, PersonServiceImplementation>();
         }

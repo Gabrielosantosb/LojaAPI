@@ -9,8 +9,10 @@ using WebApplication4.Services.Implementations;
 
 namespace WebApplication4.Controllers
 {
+
+    [ApiVersion("1.0")]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/v{version:apiVersion}")]
     public class PersonController : ControllerBase
     {
 
