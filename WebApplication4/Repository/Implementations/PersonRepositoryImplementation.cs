@@ -6,13 +6,13 @@ using System.Threading;
 using WebApplication4.Model;
 using WebApplication4.Model.Context;
 
-namespace WebApplication4.Services.Implementations
+namespace WebApplication4.Repository.Implementations
 {
-    public class PersonServiceImplementation : IPersonService
+    public class PersonRepositoryImplementation : IPersonRepository
     {
         private MySQLContext _context;
 
-        public PersonServiceImplementation(MySQLContext context)
+        public PersonRepositoryImplementation(MySQLContext context)
         {
 
             _context = context;
@@ -28,20 +28,6 @@ namespace WebApplication4.Services.Implementations
             return _context.Persons.SingleOrDefault(p => p.Id == id);
         }
 
-        //public Person Create(Person person)
-        //{
-
-        //    try
-        //    {
-        //        _context.Add(person);
-        //        _context.SaveChanges();
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //    return person;
-        //}
 
         public Person Create(Person person)
         {
@@ -61,7 +47,7 @@ namespace WebApplication4.Services.Implementations
         public Person Update(Person person)
         {
 
-            if (!Exists(person.Id)) return new Person();
+            if (!Exists(person.Id)) return null;
             var result = _context.Persons.SingleOrDefault(p => p.Id == person.Id);
             if (result != null)
             {
@@ -107,7 +93,7 @@ namespace WebApplication4.Services.Implementations
         }
 
     
-        private bool Exists(long id)
+        public bool Exists(long id)
         {
             return _context.Persons.Any(p => p.Id == id);
         }

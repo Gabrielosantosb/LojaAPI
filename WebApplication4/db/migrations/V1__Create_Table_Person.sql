@@ -5,3 +5,4 @@ CREATE TABLE IF NOT EXISTS `person` (
     `description` VARCHAR(80) NOT NULL,
     PRIMARY KEY (`id`)
 );
+

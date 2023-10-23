@@ -4,8 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication4.Business;
 using WebApplication4.Model;
-using WebApplication4.Services.Implementations;
+//using WebApplication4.Services.Implementations;
 
 namespace WebApplication4.Controllers
 {
@@ -18,9 +19,9 @@ namespace WebApplication4.Controllers
 
 
         private readonly ILogger<PersonController> _logger;
-        private IPersonService _personService;
+        private IPersonBusiness _personService;
 
-        public PersonController(ILogger<PersonController> logger, IPersonService personService)
+        public PersonController(ILogger<PersonController> logger, IPersonBusiness personService)
         {
             _personService = personService;
             _logger = logger;
@@ -38,7 +39,7 @@ namespace WebApplication4.Controllers
         public IActionResult GetById(long id)
         {
             var person = _personService.FindById(id);
-            if (person == null) return NotFound();
+            if (person == null) return NotFound("Usuário não encontrado");
 
             return Ok(_personService.FindById(id));
 
@@ -63,8 +64,10 @@ namespace WebApplication4.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
+         
+
             var person = _personService.FindById(id);
-            if (person == null) return NotFound();
+            if (person == null) return NotFound("Usuário não encontrado");
             return Ok(_personService.Delete(id));
 
 
@@ -80,7 +83,7 @@ namespace WebApplication4.Controllers
             }
 
             return Ok("Todos usuários deletados");
-        }
+        } 
     }
 }
 
