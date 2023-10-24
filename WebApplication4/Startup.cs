@@ -62,6 +62,10 @@ namespace WebApplication4
             //Injecao de dependencia
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
             services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
+            services.AddScoped<IBooksBusiness, BooksServiceImplementation>();
+            services.AddScoped<IBooksRepository, BooksRepositoryImplementation>();
+            
+
         }
 
 
