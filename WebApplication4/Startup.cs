@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using WebApplication4.Business;
 using WebApplication4.Business.Implementations;
 using WebApplication4.Model.Context;
+using WebApplication4.Repository.Base;
 using WebApplication4.Repository.Implementations;
 
 
@@ -63,7 +64,7 @@ namespace WebApplication4
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
             services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
             services.AddScoped<IBooksBusiness, BooksServiceImplementation>();
-            services.AddScoped<IBooksRepository, BooksRepositoryImplementation>();
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             
 
         }

@@ -1,16 +1,14 @@
 ﻿using Microsoft.VisualBasic;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using WebApplication4.Model.Generic;
 
 namespace WebApplication4.Model
 {
     [Table("books")]
-    public class Books
+    public class Books : BaseEntity
     {
-        
-        [Column("id")]
-        public long Id { get; set; }
-
+  
         [Column("author")]
         public string Author { get; set; }
 
