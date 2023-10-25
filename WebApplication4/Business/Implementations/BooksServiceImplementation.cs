@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading;
+﻿using System.Collections.Generic;
 using WebApplication4.Model;
-using WebApplication4.Model.Context;
 using WebApplication4.Repository.Implementations;
 
 namespace WebApplication4.Business.Implementations
