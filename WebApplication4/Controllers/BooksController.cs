@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using WebApplication4.Business;
 using WebApplication4.Model;
-//using WebApplication4.Services.Implementations;
+
 
 namespace WebApplication4.Controllers
 {
@@ -15,7 +15,7 @@ namespace WebApplication4.Controllers
 
 
         private readonly ILogger<BooksController> _logger;
-        private IBookService _booksService;
+        private readonly IBookService _booksService;
 
         public BooksController(ILogger<BooksController> logger, IBookService booksService)
         {

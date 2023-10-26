@@ -8,7 +8,6 @@ namespace WebApplication4.Model
     [Table("books")]
     public class Books : BaseEntity
     {
-  
         [Column("author")]
         public string Author { get; set; }
 
@@ -20,7 +19,5 @@ namespace WebApplication4.Model
 
         [Column("title")]
         public string Title { get; set; }
-
-
     }
 }

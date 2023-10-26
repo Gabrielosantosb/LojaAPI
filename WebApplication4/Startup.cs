@@ -60,7 +60,8 @@ namespace WebApplication4
             }
             //Versionamento API
             services.AddApiVersioning();
-            //Injecao de dependencia
+
+            //Injecao de dependencias
             services.AddScoped<IPersonService, PersonBusinessImplementation>();
             services.AddScoped<IBookService, BooksServiceImplementation>();
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
@@ -89,7 +90,7 @@ namespace WebApplication4
                 endpoints.MapControllers();
             });
         }
-        private void MigrateDataBase(string connection)
+        private static void MigrateDataBase(string connection)
         {
             try
             {

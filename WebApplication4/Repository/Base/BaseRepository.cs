@@ -10,8 +10,8 @@ namespace WebApplication4.Repository.Base
 {
     public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
-        private MySQLContext _context;
-        private DbSet<T> dataset;
+        private readonly MySQLContext _context;
+        private readonly DbSet<T> dataset;
 
         public BaseRepository(MySQLContext context)
         {

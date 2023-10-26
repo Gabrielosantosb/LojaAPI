@@ -1,7 +1,6 @@
 ﻿
 
 using System.Collections.Generic;
-using WebApplication4.Model;
 using WebApplication4.Model.Generic;
 
 namespace WebApplication4.Repository.Implementations
