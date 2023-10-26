@@ -61,9 +61,8 @@ namespace WebApplication4
             //Versionamento API
             services.AddApiVersioning();
             //Injecao de dependencia
-            services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
-            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
-            services.AddScoped<IBooksBusiness, BooksServiceImplementation>();
+            services.AddScoped<IPersonService, PersonBusinessImplementation>();
+            services.AddScoped<IBookService, BooksServiceImplementation>();
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             
 

@@ -3,7 +3,7 @@ using WebApplication4.Model;
 
 namespace WebApplication4.Business
 {
-    public interface IBooksBusiness
+    public interface IBookService
     {
         Books Create(Books books);
         Books Update(Books books);

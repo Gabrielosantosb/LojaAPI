@@ -15,9 +15,9 @@ namespace WebApplication4.Controllers
 
 
         private readonly ILogger<BooksController> _logger;
-        private IBooksBusiness _booksService;
+        private IBookService _booksService;
 
-        public BooksController(ILogger<BooksController> logger, IBooksBusiness booksService)
+        public BooksController(ILogger<BooksController> logger, IBookService booksService)
         {
             _booksService = booksService;
             _logger = logger;

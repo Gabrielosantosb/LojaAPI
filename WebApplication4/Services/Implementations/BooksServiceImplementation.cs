@@ -4,7 +4,7 @@ using WebApplication4.Repository.Implementations;
 
 namespace WebApplication4.Business.Implementations
 {
-    public class BooksServiceImplementation : IBooksBusiness
+    public class BooksServiceImplementation : IBookService
     {
         private readonly IRepository<Books> _repository;
 

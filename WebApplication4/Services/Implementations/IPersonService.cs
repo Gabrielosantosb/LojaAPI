@@ -1,12 +1,9 @@
-﻿
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using WebApplication4.Model;
 
-namespace WebApplication4.Repository.Implementations
-
+namespace WebApplication4.Business
 {
-    public interface IPersonRepository
+    public interface IPersonService
     {
         Person Create(Person person);
         Person Update(Person person);
@@ -14,8 +11,6 @@ namespace WebApplication4.Repository.Implementations
         Person FindById(long id);
         List<Person> FindAll();
         List<Person> DeleteAll();
-
-        bool Exists (long id);
 
     }
 }

@@ -19,9 +19,9 @@ namespace WebApplication4.Controllers
 
 
         private readonly ILogger<PersonController> _logger;
-        private IPersonBusiness _personService;
+        private IPersonService _personService;
 
-        public PersonController(ILogger<PersonController> logger, IPersonBusiness personService)
+        public PersonController(ILogger<PersonController> logger, IPersonService personService)
         {
             _personService = personService;
             _logger = logger;
