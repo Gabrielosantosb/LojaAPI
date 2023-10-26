@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace WebApplication4.Data.VO
+namespace WebApplication4.Services.BooksServices.Models
 {
 
     public class BooksVO

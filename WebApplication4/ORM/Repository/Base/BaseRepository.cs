@@ -2,11 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using WebApplication4.Model.Context;
-using WebApplication4.Model.Generic;
-using WebApplication4.Repository.Implementations;
+using WebApplication4.ORM.Entity;
 
-namespace WebApplication4.Repository.Base
+namespace WebApplication4.ORM.Repository.Base
 {
     public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
@@ -83,7 +81,7 @@ namespace WebApplication4.Repository.Base
 
         public List<T> DeleteAll()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public bool Exists(long id)

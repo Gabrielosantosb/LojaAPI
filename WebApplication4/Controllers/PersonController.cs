@@ -1,12 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using WebApplication4.Business;
-using WebApplication4.Data.VO;
-using WebApplication4.Model;
+using WebApplication4.Services.PersonServices;
+using WebApplication4.Services.PersonServices.Models;
 //using WebApplication4.Services.Implementations;
 
 namespace WebApplication4.Controllers

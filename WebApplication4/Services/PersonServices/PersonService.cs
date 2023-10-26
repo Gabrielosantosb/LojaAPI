@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WebApplication4.Data.Converter.Implementations;
-using WebApplication4.Data.VO;
-using WebApplication4.Model;
-using WebApplication4.Repository.Implementations;
+using WebApplication4.ORM.Entity;
+using WebApplication4.ORM.Repository.Base;
+using WebApplication4.Services.PersonServices.Models;
 
-namespace WebApplication4.Business.Implementations
+namespace WebApplication4.Services.PersonServices
 {
     public class PersonBusinessImplementation : IPersonService
     {
@@ -39,7 +38,7 @@ namespace WebApplication4.Business.Implementations
 
         public void Delete(long id)
         {
-            
+
             _repository.Delete(id);
         }
         public PersonVO FindById(long id)

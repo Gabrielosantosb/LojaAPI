@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using WebApplication4.Data.Converter.Contract;
-using WebApplication4.Data.VO;
-using WebApplication4.Model;
+using WebApplication4.ORM.Entity;
+using WebApplication4.Services.BooksServices.Models;
 
-namespace WebApplication4.Data.Converter.Implementations
+namespace WebApplication4.Services.BooksServices
 {
     public class BooksConverter : IParser<BooksVO, Books>, IParser<Books, BooksVO>
     {

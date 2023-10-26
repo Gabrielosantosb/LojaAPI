@@ -7,12 +7,10 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using System;
 using System.Collections.Generic;
-using WebApplication4.Business;
-using WebApplication4.Business.Implementations;
-using WebApplication4.Model.Context;
-using WebApplication4.Repository.Base;
-using WebApplication4.Repository.Implementations;
-
+using WebApplication4.ORM;
+using WebApplication4.ORM.Repository.Base;
+using WebApplication4.Services.BooksServices;
+using WebApplication4.Services.PersonServices;
 
 namespace WebApplication4
 {
@@ -63,7 +61,7 @@ namespace WebApplication4
 
             //Injecao de dependencias
             services.AddScoped<IPersonService, PersonBusinessImplementation>();
-            services.AddScoped<IBookService, BooksServiceImplementation>();
+            services.AddScoped<IBookService, BookService>();
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             
 

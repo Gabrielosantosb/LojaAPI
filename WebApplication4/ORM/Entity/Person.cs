@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using WebApplication4.Model.Generic;
 
-namespace WebApplication4.Model
+namespace WebApplication4.ORM.Entity
 {
     [Table("person")]
     public class Person : BaseEntity

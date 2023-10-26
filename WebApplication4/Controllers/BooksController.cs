@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using WebApplication4.Business;
-using WebApplication4.Data.VO;
-
+using WebApplication4.Services.BooksServices;
+using WebApplication4.Services.BooksServices.Models;
 
 namespace WebApplication4.Controllers
 {

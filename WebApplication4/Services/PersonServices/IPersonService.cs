@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using WebApplication4.Data.VO;
+using WebApplication4.Services.PersonServices.Models;
 
-
-namespace WebApplication4.Business
+namespace WebApplication4.Services.PersonServices
 {
     public interface IPersonService
     {

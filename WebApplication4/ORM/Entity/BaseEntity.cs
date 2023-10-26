@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApplication4.Model.Generic
+namespace WebApplication4.ORM.Entity
 {
     public class BaseEntity
     {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApplication4.ORM.Entity;
 
-namespace WebApplication4.Model.Context
+namespace WebApplication4.ORM
 {
     public class MySQLContext : DbContext
     {
@@ -9,7 +10,7 @@ namespace WebApplication4.Model.Context
 
         }
 
-        public MySQLContext(DbContextOptions<MySQLContext> options) : base(options) 
+        public MySQLContext(DbContextOptions<MySQLContext> options) : base(options)
         {
 
         }

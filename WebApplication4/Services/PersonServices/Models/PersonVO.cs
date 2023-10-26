@@ -1,4 +1,4 @@
-﻿namespace WebApplication4.Data.VO
+﻿namespace WebApplication4.Services.PersonServices.Models
 {
 
     public class PersonVO
