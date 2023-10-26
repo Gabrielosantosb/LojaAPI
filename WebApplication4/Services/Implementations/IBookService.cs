@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
-using WebApplication4.Model;
+using WebApplication4.Data.VO;
+
 
 namespace WebApplication4.Business
 {
     public interface IBookService
     {
-        Books Create(Books books);
-        Books Update(Books books);
-        Books Delete(long id);
-        Books FindById(long id);
-        List<Books> FindAll();
-        List<Books> DeleteAll();
+        BooksVO Create(BooksVO books);
+        BooksVO Update(BooksVO books);
+        void Delete(long id);
+        BooksVO FindById(long id);
+        List<BooksVO> FindAll();
+        List<BooksVO> DeleteAll();
 
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApplication4.Business;
-using WebApplication4.Model;
+using WebApplication4.Data.VO;
 
 
 namespace WebApplication4.Controllers
@@ -41,7 +41,7 @@ namespace WebApplication4.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Books books)
+        public IActionResult Post([FromBody] BooksVO books)
         {
             if (books == null) return BadRequest();
             return Ok(_booksService.Create(books));
@@ -49,7 +49,7 @@ namespace WebApplication4.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] Books books)
+        public IActionResult Put(int id, [FromBody] BooksVO books)
         {
             if (books == null) return BadRequest();
             if (id != books.Id) return BadRequest("O ID do objeto não corresponde ao ID");
@@ -59,13 +59,10 @@ namespace WebApplication4.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
-
-
             var books = _booksService.FindById(id);
-            if (books == null) return NotFound("Livro não encontrado");
-            return Ok(_booksService.Delete(id));
-
-
+            if (books == null) return NotFound("Usuário não encontrado");
+            _booksService.Delete(id);
+            return Ok($"Livro de id {id} deletado");
         }
 
         [HttpDelete("all")]

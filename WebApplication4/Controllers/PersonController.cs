@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication4.Business;
+using WebApplication4.Data.VO;
 using WebApplication4.Model;
 //using WebApplication4.Services.Implementations;
 
@@ -46,7 +47,7 @@ namespace WebApplication4.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Person person)
+        public IActionResult Post([FromBody] PersonVO person)
         {
             if (person == null) return BadRequest();
             return Ok(_personService.Create(person));
@@ -54,7 +55,7 @@ namespace WebApplication4.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] Person person)
+        public IActionResult Put(int id, [FromBody] PersonVO person)
         {
             if (person == null) return BadRequest();
             if (id != person.Id) return BadRequest("O ID do objeto não corresponde ao ID");
@@ -64,14 +65,13 @@ namespace WebApplication4.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
-         
-
             var person = _personService.FindById(id);
+
             if (person == null) return NotFound("Usuário não encontrado");
-            return Ok(_personService.Delete(id));
-
-
+            _personService.Delete(id);
+            return Ok($"Usuário de id {id} deletado");
         }
+
 
         [HttpDelete("all")]
         public IActionResult DeleteAll()
@@ -83,7 +83,7 @@ namespace WebApplication4.Controllers
             }
 
             return Ok("Todos usuários deletados");
-        } 
+        }
     }
 }
 

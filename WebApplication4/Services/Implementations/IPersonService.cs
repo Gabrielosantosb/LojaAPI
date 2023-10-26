@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
-using WebApplication4.Model;
+using WebApplication4.Data.VO;
+
 
 namespace WebApplication4.Business
 {
     public interface IPersonService
     {
-        Person Create(Person person);
-        Person Update(Person person);
-        Person Delete(long id);
-        Person FindById(long id);
-        List<Person> FindAll();
-        List<Person> DeleteAll();
+        PersonVO Create(PersonVO person);
+        PersonVO Update(PersonVO person);
+        void Delete(long id);
+        PersonVO FindById(long id);
+        List<PersonVO> FindAll();
+        List<PersonVO> DeleteAll();
 
     }
 }

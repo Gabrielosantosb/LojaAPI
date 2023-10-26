@@ -1,6 +1,7 @@
 ﻿
 
 using System.Collections.Generic;
+using WebApplication4.Data.VO;
 using WebApplication4.Model.Generic;
 
 namespace WebApplication4.Repository.Implementations
@@ -17,6 +18,6 @@ namespace WebApplication4.Repository.Implementations
         List<T> DeleteAll();
 
         bool Exists (long id);
-
+        //PersonVO Create(PersonVO person);
     }
 }
