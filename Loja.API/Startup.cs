@@ -1,7 +1,11 @@
+
 using Loja.ORM;
 using Loja.ORM.Repository.Base;
 using Loja.Services.Services.BooksServices;
+using Loja.Services.Services.HyperMedia.Enricher;
+using Loja.Services.Services.HyperMedia.Filters;
 using Loja.Services.Services.PersonServices;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +51,16 @@ namespace Loja.API
             });
 
             services.AddControllers();
+            //services.AddMvc(options =>
+            //{
+            //    options.RespectBrowserAcceptHeader = true;
+
+                
+            //    options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("application/xml"));
+            //    options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
+            //}).AddXmlSerializerFormatters();
+
+
 
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
@@ -56,6 +70,12 @@ namespace Loja.API
                 MigrateDataBase(connection);
 
             }
+            var filterOptions = new HyperMediaFilterOptions();
+            filterOptions.Enrichers.Add(new PersonEnricher());
+            services.AddSingleton(filterOptions);
+            
+            
+
             //Versionamento API
             services.AddApiVersioning();
 
@@ -86,6 +106,7 @@ namespace Loja.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute("DefaultApi", "{controller=values}/{id?}");
             });
         }
         private static void MigrateDataBase(string connection)

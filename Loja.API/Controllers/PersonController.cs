@@ -1,4 +1,5 @@
-﻿using Loja.Services.Services.PersonServices;
+﻿using Loja.Services.Services.HyperMedia.Filters;
+using Loja.Services.Services.PersonServices;
 using Loja.Services.Services.PersonServices.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -24,6 +25,7 @@ namespace Loja.API.Controllers
         }
 
         [HttpGet]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
             return Ok(_personService.FindAll());
@@ -32,6 +34,7 @@ namespace Loja.API.Controllers
 
 
         [HttpGet("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult GetById(long id)
         {
             var person = _personService.FindById(id);
@@ -50,6 +53,7 @@ namespace Loja.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put(int id, [FromBody] PersonVO person)
         {
             if (person == null) return BadRequest();
@@ -68,7 +72,7 @@ namespace Loja.API.Controllers
         }
 
 
-        [HttpDelete("all")]
+        [HttpDelete("all")]        
         public IActionResult DeleteAll()
         {
             var deletedPersons = _personService.DeleteAll();

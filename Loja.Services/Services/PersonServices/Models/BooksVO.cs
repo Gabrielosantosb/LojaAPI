@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Loja.Services.Services.PersonServices.Models
 {
 
-    public class PersonVO : ISupportsHyperMedia
+    public class BooksVO : ISupportsHyperMedia
     {
 
         public long Id { get; set; }

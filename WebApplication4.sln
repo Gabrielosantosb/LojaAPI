@@ -10,7 +10,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loja.Services", "Loja.Servi
 		{088D9291-46B8-46BB-8689-C9411E94D3D3} = {088D9291-46B8-46BB-8689-C9411E94D3D3}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loja.API", "Loja.API\Loja.API.csproj", "{B5E81119-4BDE-4D37-BED8-37458B7E7798}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loja.API", "Loja.API\Loja.API.csproj", "{B5E81119-4BDE-4D37-BED8-37458B7E7798}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2F2AA8B2-0F72-49EF-9FCD-E0F7E7172329}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
