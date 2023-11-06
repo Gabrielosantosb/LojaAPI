@@ -1,7 +1,7 @@
-﻿using Loja.Services.Services.HyperMedia.Abstract;
+﻿using Loja.Services.HyperMedia.Abstract;
 using System.Collections.Generic;
 
-namespace Loja.Services.Services.HyperMedia.Filters
+namespace Loja.Services.HyperMedia.Filters
 {
     public class HyperMediaFilterOptions
     {

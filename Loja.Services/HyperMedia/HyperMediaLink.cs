@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Loja.Services.Services.HyperMedia
+namespace Loja.Services.HyperMedia
 {
     public class HyperMediaLink
     {

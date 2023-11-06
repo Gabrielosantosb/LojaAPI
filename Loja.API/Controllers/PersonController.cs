@@ -1,4 +1,4 @@
-﻿using Loja.Services.Services.HyperMedia.Filters;
+﻿using Loja.Services.HyperMedia.Filters;
 using Loja.Services.Services.PersonServices;
 using Loja.Services.Services.PersonServices.Models;
 using Microsoft.AspNetCore.Mvc;

@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Loja.Services.Services.HyperMedia.Filters
+namespace Loja.Services.HyperMedia.Filters
 {
     public class HyperMediaFilter : ResultFilterAttribute
     {

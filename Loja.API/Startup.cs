@@ -2,8 +2,8 @@
 using Loja.ORM;
 using Loja.ORM.Repository.Base;
 using Loja.Services.Services.BooksServices;
-using Loja.Services.Services.HyperMedia.Enricher;
-using Loja.Services.Services.HyperMedia.Filters;
+using Loja.Services.HyperMedia.Enricher;
+using Loja.Services.HyperMedia.Filters;
 using Loja.Services.Services.PersonServices;
 
 using Microsoft.AspNetCore.Builder;
@@ -46,7 +46,7 @@ namespace Loja.API
             {
                 options.AddPolicy("AllowAngular", builder =>
                 {
-                    builder.WithOrigins("http://localhost:4200") // Endereço do Angular
+                    builder.WithOrigins("http://localhost:4200")
                            .AllowAnyMethod()
                            .AllowAnyHeader();
                 });
@@ -116,8 +116,8 @@ namespace Loja.API
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
+            app.UseCors();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

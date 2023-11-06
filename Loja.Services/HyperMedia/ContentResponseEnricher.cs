@@ -1,4 +1,4 @@
-﻿using Loja.Services.Services.HyperMedia.Abstract;
+﻿using Loja.Services.HyperMedia.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -7,7 +7,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Loja.Services.Services.HyperMedia
+namespace Loja.Services.HyperMedia
 {
     public abstract class ContentResponseEnricher<T> : IResponseEnricher where T : ISupportsHyperMedia
     {

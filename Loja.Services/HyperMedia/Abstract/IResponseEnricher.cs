@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using System.Threading.Tasks;
 
-namespace Loja.Services.Services.HyperMedia.Abstract
+namespace Loja.Services.HyperMedia.Abstract
 {
     public interface IResponseEnricher
     {

@@ -1,5 +1,5 @@
-﻿using Loja.Services.Services.HyperMedia;
-using Loja.Services.Services.HyperMedia.Abstract;
+﻿using Loja.Services.HyperMedia;
+using Loja.Services.HyperMedia.Abstract;
 using System.Collections.Generic;
 
 namespace Loja.Services.Services.PersonServices.Models

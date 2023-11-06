@@ -1,4 +1,4 @@
-﻿namespace Loja.Services.Services.HyperMedia.Constants
+﻿namespace Loja.Services.HyperMedia.Constants
 {
     public sealed class RelationType
     {

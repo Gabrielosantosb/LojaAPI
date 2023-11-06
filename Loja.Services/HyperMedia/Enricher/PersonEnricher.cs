@@ -1,10 +1,11 @@
-﻿using Loja.Services.Services.HyperMedia.Constants;
+﻿using Loja.Services.HyperMedia;
+using Loja.Services.HyperMedia.Constants;
 using Loja.Services.Services.PersonServices.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Loja.Services.Services.HyperMedia.Enricher
+namespace Loja.Services.HyperMedia.Enricher
 {
     public class PersonEnricher : ContentResponseEnricher<PersonVO>
     {
