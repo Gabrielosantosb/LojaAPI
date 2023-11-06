@@ -72,6 +72,7 @@ namespace Loja.API
             }
             var filterOptions = new HyperMediaFilterOptions();
             filterOptions.Enrichers.Add(new PersonEnricher());
+            filterOptions.Enrichers.Add(new BooksEnricher());
             services.AddSingleton(filterOptions);
             
             
