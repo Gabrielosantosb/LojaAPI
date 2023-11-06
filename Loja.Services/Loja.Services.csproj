@@ -16,8 +16,4 @@
     <ProjectReference Include="..\Loja.ORM\Loja.ORM.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\UserServices\" />
-  </ItemGroup>
-
 </Project>

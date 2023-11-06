@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Loja.Services.Services.PersonServices.Models
@@ -7,6 +8,8 @@ namespace Loja.Services.Services.PersonServices.Models
     [Table("users")]
     public class User 
     {
+
+        [Key]
         [Column("id")]
         public long Id { get; set; }
         
