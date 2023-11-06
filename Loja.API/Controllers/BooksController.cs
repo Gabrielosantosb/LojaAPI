@@ -1,7 +1,9 @@
 ﻿using Loja.Services.Services.BooksServices;
 using Loja.Services.Services.BooksServices.Models;
+using Loja.Services.Services.PersonServices.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace Loja.API.Controllers
 {
@@ -23,6 +25,10 @@ namespace Loja.API.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType((200), Type = typeof(List<BooksVO>))]
+        [ProducesResponseType((204))]
+        [ProducesResponseType((400))]
+        [ProducesResponseType((401))]
         public IActionResult Get()
         {
             return Ok(_booksService.FindAll());
@@ -31,6 +37,10 @@ namespace Loja.API.Controllers
 
 
         [HttpGet("{id}")]
+        [ProducesResponseType((200), Type = typeof(BooksVO))]
+        [ProducesResponseType((204))]
+        [ProducesResponseType((400))]
+        [ProducesResponseType((401))]
         public IActionResult GetById(long id)
         {
             var books = _booksService.FindById(id);
@@ -40,6 +50,9 @@ namespace Loja.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType((200), Type = typeof(PersonVO))]
+        [ProducesResponseType((400))]
+        [ProducesResponseType((401))]
         public IActionResult Post([FromBody] BooksVO books)
         {
             if (books == null) return BadRequest();
@@ -48,6 +61,9 @@ namespace Loja.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [ProducesResponseType((200))]
+        [ProducesResponseType((400))]
+        [ProducesResponseType((401))]
         public IActionResult Put(int id, [FromBody] BooksVO books)
         {
             if (books == null) return BadRequest();
@@ -56,6 +72,10 @@ namespace Loja.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType((200))]
+        [ProducesResponseType((204))]
+        [ProducesResponseType((400))]
+        [ProducesResponseType((401))]
         public IActionResult Delete(long id)
         {
             var books = _booksService.FindById(id);

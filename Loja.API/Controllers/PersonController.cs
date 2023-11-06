@@ -3,6 +3,7 @@ using Loja.Services.Services.PersonServices;
 using Loja.Services.Services.PersonServices.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 //using WebApplication4.Services.Implementations;
 
 namespace Loja.API.Controllers
@@ -25,6 +26,10 @@ namespace Loja.API.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType((200), Type = typeof(List<PersonVO>))]
+        [ProducesResponseType((204))]
+        [ProducesResponseType((400))]
+        [ProducesResponseType((401))]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
@@ -34,6 +39,10 @@ namespace Loja.API.Controllers
 
 
         [HttpGet("{id}")]
+        [ProducesResponseType((200), Type = typeof(PersonVO))]
+        [ProducesResponseType((204))]
+        [ProducesResponseType((400))]
+        [ProducesResponseType((401))]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult GetById(long id)
         {
@@ -45,6 +54,9 @@ namespace Loja.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType((200), Type = typeof(PersonVO))]
+        [ProducesResponseType((400))]
+        [ProducesResponseType((401))]
         public IActionResult Post([FromBody] PersonVO person)
         {
             if (person == null) return BadRequest();
@@ -53,6 +65,10 @@ namespace Loja.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [ProducesResponseType((200), Type = typeof(PersonVO))]     
+        [ProducesResponseType((400))]
+        [ProducesResponseType((401))]
+
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put(int id, [FromBody] PersonVO person)
         {
@@ -62,6 +78,10 @@ namespace Loja.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType((200))]
+        [ProducesResponseType((204))]
+        [ProducesResponseType((400))]
+        [ProducesResponseType((401))]
         public IActionResult Delete(long id)
         {
             var person = _personService.FindById(id);

@@ -8,10 +8,12 @@ using Loja.Services.Services.PersonServices;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -55,7 +57,7 @@ namespace Loja.API
             //{
             //    options.RespectBrowserAcceptHeader = true;
 
-                
+
             //    options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("application/xml"));
             //    options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
             //}).AddXmlSerializerFormatters();
@@ -74,12 +76,27 @@ namespace Loja.API
             filterOptions.Enrichers.Add(new PersonEnricher());
             filterOptions.Enrichers.Add(new BooksEnricher());
             services.AddSingleton(filterOptions);
-            
-            
+
+
 
             //Versionamento API
             services.AddApiVersioning();
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "REST API ASP.NET Core 5",
+                    Version = "v1",
+                    Description = "API RESTful",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Gabriel",
+                        Url = new Uri("https://github.com/Gabrielosantosb")
+                    }
+
+                });
+            });
             //Injecao de dependencias
             services.AddScoped<IPersonService, PersonBusinessImplementation>();
             services.AddScoped<IBookService, BookService>();
@@ -101,7 +118,14 @@ namespace Loja.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "REST API ASP.NET Core 5");
+            });
+            var option = new RewriteOptions();
+            option.AddRedirect("^$", "swagger");
+            app.UseRewriter(option);
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
