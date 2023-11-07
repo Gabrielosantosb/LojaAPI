@@ -19,6 +19,7 @@ namespace Loja.ORM.Implementations
 
         public string GenerateAcessToken(IEnumerable<Claim> claims)
         {
+            
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.Secret));
             var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
@@ -29,6 +30,7 @@ namespace Loja.ORM.Implementations
                 expires: DateTime.Now.AddMinutes(_configuration.Minutes),
                 signingCredentials: signinCredentials
                 );
+            //new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SECRET_KEY"));
             string tokenString = new JwtSecurityTokenHandler().WriteToken(options);
             return tokenString;
 

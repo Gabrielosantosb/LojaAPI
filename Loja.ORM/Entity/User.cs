@@ -24,8 +24,9 @@ namespace Loja.Services.Services.PersonServices.Models
         [Column("refresh_token")]
 
         public string RefreshToken { get; set; }
-        [Column("refresh_token_expiry_time")]
+        
 
+        [Column("refresh_token_expiry_time")]
         public DateTime RefreshTokenExpiryType { get; set; }
         //public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }

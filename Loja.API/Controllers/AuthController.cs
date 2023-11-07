@@ -10,12 +10,12 @@ namespace Loja.API.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly ILogger<AuthController> _logger;
+
         private ILoginService _loginService;
 
-        public AuthController(ILogger<AuthController> logger, ILoginService loginService)
+        public AuthController(ILoginService loginService)
         {
-            _logger = logger;
+
             _loginService = loginService;
         }
 

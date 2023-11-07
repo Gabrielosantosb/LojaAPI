@@ -1,6 +1,7 @@
 ﻿using Loja.Services.Services.BooksServices;
 using Loja.Services.Services.BooksServices.Models;
 using Loja.Services.Services.PersonServices.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace Loja.API.Controllers
 
     [ApiVersion("1")]
     [ApiController]
+    [Authorize("Bearer")]
     [Route("api/[controller]/v{version:apiVersion}")]
     public class BooksController : ControllerBase
     {

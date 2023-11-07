@@ -1,6 +1,7 @@
 ﻿using Loja.Services.HyperMedia.Filters;
 using Loja.Services.Services.PersonServices;
 using Loja.Services.Services.PersonServices.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace Loja.API.Controllers
 
     [ApiVersion("1.0")]
     [ApiController]
+    [Authorize("Bearer")]
     [Route("api/[controller]/v{version:apiVersion}")]
     public class PersonController : ControllerBase
     {
