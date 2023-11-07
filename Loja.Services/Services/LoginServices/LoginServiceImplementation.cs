@@ -26,6 +26,7 @@ namespace Loja.Services.Services.LoginServices
             _tokenService = tokenService;
         }
 
+
         public TokenVO ValidateCredentials(User userCredentials)
         {
             var user = _repository.ValidateCredentials(userCredentials);
@@ -57,5 +58,44 @@ namespace Loja.Services.Services.LoginServices
                 refreshToken
                 );
         }
+
+        public TokenVO ValidateCredentials(TokenVO token)
+        {
+            var acessToken = token.AcessToken;
+            var refreshToken = token.RefreshToken;
+
+            var principal = _tokenService.GetPrincipalFromExpiredToken(acessToken);
+            var username = principal.Identity.Name;
+
+            var user = _repository.ValidateCredentials(username);
+            if (user == null || 
+                user.RefreshToken != refreshToken || 
+                user.RefreshTokenExpiryType <= DateTime.Now)
+                return null;
+
+            acessToken = _tokenService.GenerateAcessToken(principal.Claims);
+            refreshToken = _tokenService.GenerateRefreshToken();
+
+            user.RefreshToken = refreshToken;
+
+            _repository.RefreshUserInfo(user);
+
+            DateTime createDate = DateTime.Now;
+            DateTime expirationDate = createDate.AddMinutes(_configuration.Minutes);
+
+
+
+            return new TokenVO(
+                true,
+                createDate.ToString(DATE_FORMAT),
+                expirationDate.ToString(DATE_FORMAT),
+                acessToken,
+                refreshToken
+                );
+
+
+
+        }
+       
     }
 }

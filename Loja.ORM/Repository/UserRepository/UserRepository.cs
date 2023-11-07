@@ -15,6 +15,11 @@ namespace Loja.ORM.Repository.UserRepository
             _context = context;
         }
 
+        public User ValidateCredentials(string userName)
+        {
+            return _context.Users.SingleOrDefault(u => (u.UserName == userName));
+        }
+
         public User ValidateCredentials(User user)
         {
             var pass = ComputeHash(user.Password, new SHA256CryptoServiceProvider());
@@ -38,13 +43,22 @@ namespace Loja.ORM.Repository.UserRepository
                 }
             return result;
         }
+        public bool RevokeToken(string userName)
+        {
+            var user =  _context.Users.SingleOrDefault(u => (u.UserName == userName));
+            if (user is null) return false;
+            user.RefreshToken = null;
+            _context.SaveChanges();
+            return true;
+        }
 
-        private object ComputeHash(string input, SHA256CryptoServiceProvider algorithm)
+        private static object ComputeHash(string input, SHA256CryptoServiceProvider algorithm)
         {
             Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
             Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
             return BitConverter.ToString(hashedBytes);
 
         }
+
     }
 }

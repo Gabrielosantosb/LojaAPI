@@ -6,5 +6,9 @@ namespace Loja.Services.Services.LoginServices
     public interface ILoginService
     {
         TokenVO ValidateCredentials(User user);
+
+        TokenVO ValidateCredentials(TokenVO token);
+
+        bool RevokeToken(string userName);
     }
 }
