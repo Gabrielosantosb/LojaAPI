@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace Loja.ORM.Configurations
+namespace Loja.ORM.Implementations
 {
-    public interface ITokenInterface
+    internal interface ITokenService
     {
         string GenerateAcessToken(IEnumerable<Claim> claims);
         string GenerateRefreshToken();
