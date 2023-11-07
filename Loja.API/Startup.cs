@@ -17,6 +17,9 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using Loja.ORM.Implementations;
+using Loja.Services.Services.LoginServices;
+using Loja.ORM.Repository.UserRepository;
 
 namespace Loja.API
 {
@@ -100,6 +103,11 @@ namespace Loja.API
             //Injecao de dependencias
             services.AddScoped<IPersonService, PersonBusinessImplementation>();
             services.AddScoped<IBookService, BookService>();
+            services.AddScoped<ILoginService, LoginServiceImplementation>();
+
+            services.AddTransient<ITokenService, TokenService>();
+
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
 
 

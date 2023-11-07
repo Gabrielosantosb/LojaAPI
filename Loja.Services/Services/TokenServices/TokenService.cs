@@ -1,17 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Loja.ORM.Implementations
 {
-    internal class TokenService : ITokenService
+    public class TokenService : ITokenService
     {
         private TokenConfiguration _configuration;
 

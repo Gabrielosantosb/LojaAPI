@@ -1,13 +1,12 @@
 ﻿using Loja.Services.Services.PersonServices.Models;
 using System;
-using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace Loja.ORM.Repository.UserRepository
 {
-    internal class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly MySQLContext _context;
 
