@@ -9,7 +9,7 @@ using System.Security.Claims;
 
 namespace Loja.Services.Services.LoginServices
 {
-    public class LoginServiceImplementation : ILoginService
+    public class LoginService : ILoginService
     {
 
 
@@ -19,7 +19,7 @@ namespace Loja.Services.Services.LoginServices
         private IUserRepository _repository;
         private readonly ITokenService _tokenService;
 
-        public LoginServiceImplementation(TokenConfiguration configuration, IUserRepository repository, ITokenService tokenService)
+        public LoginService(TokenConfiguration configuration, IUserRepository repository, ITokenService tokenService)
         {
             _configuration = configuration;
             _repository = repository;
@@ -96,6 +96,10 @@ namespace Loja.Services.Services.LoginServices
 
 
         }
-       
+
+        public bool RevokeToken(string userName)
+        {
+            return _repository.RevokeToken(userName);
+        }
     }
 }
