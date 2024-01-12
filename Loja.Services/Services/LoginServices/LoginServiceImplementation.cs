@@ -96,6 +96,10 @@ namespace Loja.Services.Services.LoginServices
 
 
         }
-       
+
+        public bool RevokeToken(string userName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
