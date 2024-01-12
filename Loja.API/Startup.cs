@@ -140,7 +140,7 @@ namespace Loja.API
             //Injecao de dependencias
             services.AddScoped<IPersonService, PersonBusinessImplementation>();
             services.AddScoped<IBookService, BookService>();
-            services.AddScoped<ILoginService, LoginServiceImplementation>();
+            services.AddScoped<ILoginService, LoginService>();
 
             services.AddTransient<ITokenService, TokenService>();
 
